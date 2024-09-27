@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --secondary: 210 40% 96.1%;
+    --muted: 210 40% 96.1%;
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground; /* Clases personalizadas */
+  }
+
+  .header-background {
+    background-color: #007BFF; /* Color azul */
+    color: white; /* Asegura que el texto y los íconos sean visibles sobre el fondo azul */
+  }
+
+
+  .bg-background {
+    background-color: hsl(var(--background)); /* Define la clase */
+  }
+
+  .header {
+    @apply shadow-lg;
+  }
+
+  .event-image {
+    transition: transform 0.3s ease-in-out; /* Suaviza la transición */
+    max-width: 100%; /* Para mantener el tamaño natural sin zoom */
+  }
+
+  .container{
+    width: 80%;
+    height: 250px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 20px;
+  }
+
+  .container img{
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: all ease-out 0.5s;
+    position: relative;
+    top: 2%;
+    left: 210%;
+    z-index: 1;
+  }
+
+  .container img:hover{
+    width: 110%;
+  }
+
+  .container img:not(:hover) {
+    flex-grow: 0.5; /* Las imágenes a los lados se comprimen */
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-200 hover:shadow-lg hover:scale-105;
+  }
+
+  .card-image {
+    @apply w-full h-48 object-cover rounded-t-md;
+  }
+
+  .combobox-button {
+    @apply bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
