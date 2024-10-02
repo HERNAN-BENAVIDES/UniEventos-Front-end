@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component'; // Agrega esta línea
 
 @NgModule({
-  declarations: [
-    HomeComponent // Declara HomeComponent aquí
-  ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }
