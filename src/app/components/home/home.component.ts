@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  standalone: true,
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
@@ -15,5 +16,9 @@ export class HomeComponent {
 
     // Navegar a la página de login
     this.router.navigate(['/login']);
+  }
+
+  change() {
+    this.router.navigate(['/eventBuild'])
   }
 }

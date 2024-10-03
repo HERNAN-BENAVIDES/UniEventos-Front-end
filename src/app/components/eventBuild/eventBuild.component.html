@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Evento</title>
+  <link rel="stylesheet" href="/eventBuild.component.css">
+</head>
+<header class="header-background py-4 px-6 flex justify-between items-center">
+  <h1 class="text-2xl font-bold">UniEventos</h1>
+  <div class="flex gap-4">
+    <!-- Botón cambiar idioma -->
+    <button class="inline-flex items-center justify-center h-10 w-10 hover:bg-blue-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.104 0-2 .896-2 2v2h4v-2c0-1.104-.896-2-2-2zM15 12h5M9 12H4M7 15h10v5a2 2 0 01-2 2H9a2 2 0 01-2-2v-5z" />
+      </svg>
+    </button>
+    <!-- Botón modo oscuro -->
+    <button class="inline-flex items-center justify-center h-10 w-10 hover:bg-blue-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1112.21 3a7.5 7.5 0 000 18 9.002 9.002 0 008.79-8.21z" />
+      </svg>
+    </button>
+    <!-- Botón cerrar sesión -->
+    <button class="inline-flex items-center justify-center h-10 w-10 hover:bg-blue-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-6 0v-1M9 10a3 3 0 116 0v1m-6-1h6" />
+      </svg>
+    </button>
+  </div>
+</header>
+<body>
+<div class="container">
+  <h1>Crear Evento</h1>
+  <form id="eventForm">
+    <div class="form-group">
+      <div class="form-row">
+        <label for="eventName">Nombre del Evento*</label>
+        <input type="text" id="eventName" name="eventName" required>
+      </div>
+      <div class="form-row">
+        <label for="eventType">Tipo de Evento*</label>
+        <select id="eventType" name="eventType" required>
+          <option value="concierto">Concierto</option>
+          <option value="conferencia">Conferencia</option>
+          <option value="taller">Taller</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-row">
+        <label for="department">Departamento*</label>
+        <input type="text" id="department" name="department" required>
+      </div>
+      <div class="form-row">
+        <label for="city">Ciudad*</label>
+        <input type="text" id="city" name="city" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-row">
+        <label for="neighborhood">Barrio*</label>
+        <input type="text" id="neighborhood" name="neighborhood" required>
+      </div>
+      <div class="form-row">
+        <label for="street">Calle*</label>
+        <input type="text" id="street" name="street" required>
+      </div>
+      <div class="form-row">
+        <label for="residence">Residencia*</label>
+        <input type="text" id="residence" name="residence" required>
+      </div>
+    </div>
+
+    <label for="description">Descripción*</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <div class="form-group">
+      <div class="form-row">
+        <label for="poster">Poster del Evento*</label>
+        <input type="file" id="poster" name="poster" accept="image/*" required>
+      </div>
+      <div class="form-row">
+        <label for="locationDistribution">Distribución de Localidades*</label>
+        <input type="file" id="locationDistribution" name="locationDistribution" accept=".csv" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-row">Nombre de la Localidad</label>
+      <label class="form-row">Precio</label>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <input type="text" id="localityName" name="localityName">
+      </div>
+      <div class="form-row">
+        <input type="number" id="localityPrice" name="localityPrice">
+      </div>
+
+    </div>
+    <div class="button">
+      <button type="button" id="addLocality">Añadir</button>
+    </div>
+    <div id="localitiesList"></div>
+
+    <button type="submit">Guardar Evento</button>
+  </form>
+</div>
+<script> document.getElementById('eventForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  alert('Evento guardado exitosamente!');
+});
+
+document.getElementById('addLocality').addEventListener('click', function() {
+  const localityName = document.getElementById('localityName').value;
+  const localityPrice = document.getElementById('localityPrice').value;
+
+  if (localityName && localityPrice) {
+    const localityItem = document.createElement('div');
+    localityItem.textContent = `${localityName} - $${localityPrice}`;
+    document.getElementById('localitiesList').appendChild(localityItem);
+
+    document.getElementById('localityName').value = '';
+    document.getElementById('localityPrice').value = '';
+  } else {
+    alert('Por favor, ingrese el nombre y el precio de la localidad.');
+  }
+});
+</script>
+</body>
+</html>
