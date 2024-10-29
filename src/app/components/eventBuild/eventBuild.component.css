@@ -1,83 +1,198 @@
+:root {
+  --primary-color: #007BFF;
+  --primary-hover: #0056b3;
+  --danger-color: #dc3545;
+  --danger-hover: #bd2130;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --border-color: #dee2e6;
+}
+
 body {
-  @apply bg-background text-foreground; /* Clases personalizadas */
-}
-
-.header-background {
-  background-color: #007BFF; /* Color azul */
-  color: white; /* Asegura que el texto y los íconos sean visibles sobre el fondo azul */
-}
-
-.header {
-  max-height: 30px;
-  @apply shadow-lg;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333333;
+  background-color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-  width: 70%;
-  margin: auto;
-  background: white;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.card-header {
+  background-color: #007BFF;
+  color: white;
+  padding: 1rem;
+}
+
+.card-title {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.nombre-evento,
+.tipo-evento,
+.departamento,
+.ciudad {
+  grid-column: span 1;
+}
+
+@media (min-width: 768px) {
+  .nombre-evento,
+  .tipo-evento {
+    grid-column: span 1;
+  }
+  .departamento,
+  .ciudad {
+    grid-column: span 1;
+  }
+}
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .form-group {
-  display: flex;
-  position: relative;
-  justify-content: space-evenly;
-  margin-top: 10px;
-}
+  min-width: 100px;
 
-.form-row {
   display: flex;
   flex-direction: column;
-  width: 48%;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .address-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 label {
-  margin-top: 10px;
-  color: #555;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
-input{
-  margin-top: 5px;
-  justify-content: space-evenly;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 90%;
-  max-height: 90%;
-}
-select, textarea, button {
-  margin-top: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #333333;
+  border-radius: 0.25rem;
+  font-size: 1rem;
 }
 
-button {
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin: 10px 10px 0 0;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
   background-color: #007BFF;
   color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
 }
 
-button:hover {
-  background-color: #001BFF;
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
-#localitiesList {
-  margin-top: 20px;
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+}
+
+.localidades {
+  margin-top: 1.5rem;
+}
+
+.localidad {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 10px;
+}
+
+.localidad input[type="text"] {
+  flex: 2;
+}
+
+.localidad input[type="number"] {
+  flex: 1;
+}
+
+.localidad button {
+  flex: 0 0 auto;
+}
+
+
+#addLocalidad {
+  margin-top: 1rem;
+}
+
+.full-width {
+  width: 100%;
 }

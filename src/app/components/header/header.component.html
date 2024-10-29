@@ -1,0 +1,51 @@
+<header class="header-background py-4 px-6 flex justify-between items-center">
+  <h1 class="text-2xl font-bold">UniEventos</h1>
+  <div class="flex gap-4">
+    <!-- Botón cambiar idioma -->
+    <button class="inline-flex items-center justify-center h-10 w-10 hover:bg-blue-600">
+      <svg width="800px" height="800px" viewBox="0 0 48 48" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: none;
+              stroke:#ffffff;
+              stroke-width: 2;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+            }
+          </style>
+        </defs>
+        <line class="cls-1" x1="12.62" y1="24.31" x2="17.94" y2="11.42"/>
+        <line class="cls-1" x1="23.04" y1="24.35" x2="17.94" y2="11.42"/>
+        <line class="cls-1" x1="21.34" y1="20.02" x2="14.39" y2="20.02"/>
+        <g>
+          <line class="cls-1" x1="32.63" y1="25.38" x2="39.35" y2="25.38"/>
+          <path class="cls-1" d="M35.68,25.38c0,4.34-5.29,11.51-10.59,12.61"/>
+          <path class="cls-1" d="M27.93,32.79c2.13,2.4,5.61,4.74,8.82,5.2"/>
+        </g>
+        <rect class="cls-1" x="5.5" y="5.5" width="24.67" height="24.67" rx="3.64" ry="3.64"/>
+        <path class="cls-1" d="M17.83,30.17v8.69c0,2,1.64,3.64,3.64,3.64h17.38c2,0,3.64-1.64,3.64-3.64V21.47c0-2-1.64-3.64-3.64-3.64h-8.69"/>
+      </svg>
+    </button>
+    <!-- Botón modo oscuro -->
+    <button (click)="change()" class="inline-flex items-center justify-center h-10 w-10 hover:bg-blue-600">
+      <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="nightModeIconTitle" stroke="#ffffff" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#ffffff">
+        <path d="M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/>
+        <path d="M15.899 12.899a4 4 0 0 1-4.797-4.797A4.002 4.002 0 0 0 12 16c1.9 0 3.49-1.325 3.899-3.101z"/>
+        <path d="M12 5V3M12 21v-2"/> <path d="M5 12H2h3zM22 12h-3 3zM16.95 7.05L19.07 4.93 16.95 7.05zM4.929 19.071L7.05 16.95 4.93 19.07zM16.95 16.95l2.121 2.121-2.121-2.121zM4.929 4.929L7.05 7.05 4.93 4.93z"/>
+      </svg>
+    </button>
+
+    <!-- Botón de iniciar sesión -->
+    <button *ngIf="!isLoggedIn" (click)="login()" class="inline-flex items-center justify-center h-10 w-10 hover:bg-blue-600">
+      Iniciar Sesión
+    </button>
+
+    <!-- Botón cerrar sesión -->
+    <button (click)="logout()" class="inline-flex items-center justify-center h-10 w-10 hover:bg-blue-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="white" width="800px" height="800px" viewBox="0 0 494.239 494.238">>
+        <path d="M199.725,0v36.025H85.211v421.66l114.514,0.094v36.459l209.085-37.555l0.216-418.867L199.725,0z M234.404,230.574 c7.022,0,12.715,7.408,12.715,16.545c0,9.139-5.692,16.545-12.715,16.545s-12.715-7.406-12.715-16.545 C221.688,237.982,227.382,230.574,234.404,230.574z M119.211,423.713V70.025h80.514v353.753L119.211,423.713z"></path>
+      </svg>
+    </button>
+  </div>
+</header>

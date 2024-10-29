@@ -8,17 +8,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
 
-  logout() {
-    // Aquí puedes agregar la lógica para cerrar la sesión si es necesario
-    // Por ejemplo, limpiar el almacenamiento local, eliminar tokens, etc.
-
-    // Navegar a la página de login
-    this.router.navigate(['/login']);
-  }
-
-  change() {
-    this.router.navigate(['/eventBuild'])
-  }
 }

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-background {
+  background-color: #007BFF; /* Color azul */
+  color: white; /* Asegura que el texto y los íconos sean visibles sobre el fondo azul */
+}
+
+.bg-background {
+  background-color: hsl(var(--background)); /* Define la clase */
+}
+
+.header {
+  @apply shadow-lg;
+}
