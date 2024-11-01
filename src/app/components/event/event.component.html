@@ -1,0 +1,31 @@
+<div class="event-container">
+  <div class="event-card">
+    <div class="event-header">
+      <div class="event-poster">
+        <img [src]="evento.poster" [alt]="'Poster de ' + evento.nombre">
+      </div>
+      <div class="event-info">
+        <div class="event-type">{{ evento.tipo }}</div>
+        <h1 class="event-title">{{ evento.nombre }}</h1>
+        <div class="event-location">
+          <i class="icon-map-pin"></i>
+          <span>{{ evento.ubicacion.departamento }}, {{ evento.ubicacion.ciudad }}</span>
+        </div>
+        <div class="event-address">
+          {{ evento.ubicacion.barrio }}, {{ evento.ubicacion.calle }}, {{ evento.ubicacion.residencia }}
+        </div>
+      </div>
+    </div>
+    <div class="event-description">
+      <h2><i class="icon-info"></i> Descripción</h2>
+      <p>{{ evento.descripcion }}</p>
+    </div>
+    <div class="event-layout">
+      <h2>Distribución de Localidades</h2>
+      <img [src]="evento.distribucionLocalidades" alt="Distribución de Localidades">
+    </div>
+    <div class="event-action">
+      <button (click)="comprarEntradas()" class="buy-tickets">Comprar Entradas</button>
+    </div>
+  </div>
+</div>

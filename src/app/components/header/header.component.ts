@@ -15,13 +15,15 @@ export class HeaderComponent {
 
 
   login() {
-    // Lógica para iniciar sesión
+    this.router.navigate(['/event'])
   }
   logout() {
     this.router.navigate(['/login']);
   }
-
   change() {
     this.router.navigate(['/eventBuild'])
+  }
+  translate() {
+    this.router.navigate(['/user'])
   }
 }
