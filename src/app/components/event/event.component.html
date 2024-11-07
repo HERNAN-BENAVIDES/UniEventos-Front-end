@@ -11,8 +11,10 @@
           <i class="icon-map-pin"></i>
           <span>{{ evento.ubicacion.departamento }}, {{ evento.ubicacion.ciudad }}</span>
         </div>
-        <div class="event-address">
-          {{ evento.ubicacion.barrio }}, {{ evento.ubicacion.calle }}, {{ evento.ubicacion.residencia }}
+        <div class="event-address" *ngIf="evento.ubicacion.barrio || evento.ubicacion.residencia">
+          {{ evento.ubicacion.barrio || 'No disponible' }},
+          {{ evento.ubicacion.calle }},
+          {{ evento.ubicacion.residencia || 'No disponible' }}
         </div>
       </div>
     </div>

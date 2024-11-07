@@ -1,17 +1,10 @@
-<meta charset="UTF-8">
-<link href="./home.component.css" rel="stylesheet">
-
 <div class="flex flex-col min-h-screen">
   <!-- Imágenes de la cabecera (Banner de eventos) con hover -->
   <div class="relative w-full h-64 overflow-hidden">
     <div class="grid grid-cols-5 gap-4">
-      <div class="container">
-        <img src="assets/images/Carrera%20de%20Triatlon.png" alt="Carrera de Autos">
-        <img src="assets/images/Carrera%20de%20Ciclomontañismo.png" alt="Carrera de Ciclomontañismo">
-        <img src="assets/images/Feria%20de%20Artesanias.png" alt="Feria de Artesanías">
-        <img src="assets/images/Competencia%20de%20Programacion.png" alt="Festival de Cine">
-        <img src="assets/images/Feria%20de%20Ciencia.png" alt="Feria de Ciencia">
-        <img src="assets/images/Opera.png" alt="Opera">
+      <div class="container" *ngFor="let event of eventsNext; let i = index">
+        <!-- Este bloque mostrará las imágenes de los eventos más cercanos -->
+        <img [src]="'assets/images/' + event.poster" [alt]="event.nombre" class="object-cover w-full h-48" />
       </div>
     </div>
   </div>
@@ -19,64 +12,40 @@
   <!-- Combobox de filtros -->
   <nav class="bg-muted py-4 px-6">
     <div class="flex items-center gap-4">
-      <select class="combobox-button">
+      <select class="combobox-button" [(ngModel)]="selectedCity" (change)="onCityChange(selectedCity)">
         <option value="all">All cities</option>
-        <!-- Opciones de ciudades -->
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>        <!-- Opciones de ciudades -->
       </select>
-      <select class="combobox-button">
+      <select class="combobox-button" [(ngModel)]="selectedCategory" (change)="onCategoryChange(selectedCategory)">
         <option value="all">All categories</option>
-        <!-- Opciones de categorías -->
-      </select>
-      <select class="combobox-button">
-        <option value="all">All dates</option>
-        <!-- Opciones de fechas -->
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>        <!-- Opciones de categorías -->
       </select>
     </div>
   </nav>
 
+  <!-- Mostrar mensaje si no hay eventos -->
+  <div *ngIf="noEventsMessage" class="alert alert-info">
+    {{ noEventsMessage }}
+  </div>
+
   <!-- Tarjetas de eventos -->
   <main class="flex-1 py-8 px-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <div class="card">
-        <img src="assets/images/Concierto%20de%20Rock.png" alt="Concierto de rock" class="card-image" />
+    <div *ngIf="events.totalElements > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div *ngFor="let event of events.content" class="card" (click)="onEventClick(event.id)">
+        <img [src]="'assets/images/' + event.poster" [alt]="event.nombre" class="card-image" />
         <div class="p-4">
-          <h3 class="text-lg font-bold">Concierto de rock</h3>
-          <p class="text-muted-foreground">2023-06-15</p>
-          <p class="text-muted-foreground">Ciudad de México</p>
-          <p class="text-muted-foreground">Música</p>
-          <p class="mt-2">Disfruta de una noche llena de rock and roll.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/images/Feria%20de%20Artesanias.png" alt="Feria de artesanías" class="card-image" />
-        <div class="p-4">
-          <h3 class="text-lg font-bold">Feria de artesanías</h3>
-          <p class="text-muted-foreground">2023-07-01</p>
-          <p class="text-muted-foreground">Guadalajara</p>
-          <p class="text-muted-foreground">Artesanía</p>
-          <p class="mt-2">Descubre las mejores piezas artesanales.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/images/Festival%20de%20Cine.png" alt="Festival de cine" class="card-image" />
-        <div class="p-4">
-          <h3 class="text-lg font-bold">Festival de cine</h3>
-          <p class="text-muted-foreground">2023-08-20</p>
-          <p class="text-muted-foreground">Monterrey</p>
-          <p class="text-muted-foreground">Cine</p>
-          <p class="mt-2">Disfruta de las mejores películas independientes.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="assets/images/Carrera%20de%20Autos.png" alt="Carrera de autos" class="card-image" />
-        <div class="p-4">
-          <h3 class="text-lg font-bold">Carrera de autos</h3>
-          <p class="text-muted-foreground">2023-09-10</p>
-          <p class="text-muted-foreground">Cancún</p>
-          <p class="text-muted-foreground">Deportes</p>
-          <p class="mt-2">Ven a presenciar la carrera más rápida del año.</p>
+          <h3 class="text-lg font-bold">{{ event.nombre }}</h3>
+          <p class="text-muted-foreground">{{ event.fecha }}</p>
+          <p class="text-muted-foreground">{{ event.direccion }}</p>
+          <p class="text-muted-foreground">{{ event.tipoEvento }}</p>
+          <p class="mt-2">{{ event.descripcion }}</p>
         </div>
       </div>
     </div>
+
+    <div *ngIf="eventsNext.length === 0 && !noEventsMessage" class="alert alert-info">
+      No se encontraron eventos para los filtros seleccionados.
+    </div>
   </main>
+
 </div>
