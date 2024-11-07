@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {Router} from "@angular/router";
+import {TranslateModule, TranslatePipe} from "@ngx-translate/core";
 
 interface Usuario {
   nombres: string;
@@ -17,7 +18,7 @@ interface Usuario {
   templateUrl: './user.component.html',
   standalone: true,
   imports: [
-    FormsModule, CommonModule
+    FormsModule, CommonModule, TranslatePipe, TranslateModule
   ],
   styleUrls: ['./user.component.css']
 })

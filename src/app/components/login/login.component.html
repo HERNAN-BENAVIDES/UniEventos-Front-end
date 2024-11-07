@@ -1,11 +1,11 @@
 <div class="container" [class.right-panel-active]="isRightPanelActive">
   <div class="form-container login-container">
     <form>
-      <h1>Ingresa</h1>
-      <input type="text" placeholder="Correo" />
-      <input type="password" placeholder="Contraseña" />
+      <h1>{{ 'LOGIN.SIGN_IN' | translate }}</h1>
+      <input type="text" [placeholder]="'LOGIN.EMAIL' | translate" />
+      <input type="password" [placeholder]="'LOGIN.PASSWORD' | translate" />
       <div class="button-container">
-        <button>Acceder</button>
+        <button>{{ 'LOGIN.ACCESS' | translate }}</button>
       </div>
       <button class="google-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20">
@@ -15,41 +15,41 @@
           <path fill="#EA4335" d="M24 9.5c3.6 0 6.8 1.2 9.3 3.6l7-7C36.1 2.1 30.7 0 24 0 13.7 0 4.7 4.9.8 12.3l9.2 6.3C11.8 14 17.4 9.5 24 9.5z"/>
         </svg>
       </button>
-      <p style="margin-top: 4%">¿Aún no tienes una cuenta? <a href="#" (click)="togglePanel($event)" class="toggle-link">Sign Up</a></p>
+      <p style="margin-top: 4%">{{ 'LOGIN.NO_ACCOUNT' | translate }} <a href="#" (click)="togglePanel($event)" class="toggle-link">{{ 'LOGIN.SIGN_UP' | translate }}</a></p>
     </form>
   </div>
   <div class="form-container sign-up-container">
     <form>
-      <h1>Regístrate</h1>
-      <input type="text" placeholder="Nombre(s)" />
-      <input type="text" placeholder="Apellido(s)" />
-      <input type="text" placeholder="Teléfono" />
-      <input type="text" placeholder="Cédula">
-      <input type="email" placeholder="Correo" />
-      <input type="password" placeholder="Contraseña" />
+      <h1>{{ 'LOGIN.REGISTER' | translate }}</h1>
+      <input type="text" [placeholder]="'LOGIN.FIRST_NAME' | translate" />
+      <input type="text" [placeholder]="'LOGIN.LAST_NAME' | translate" />
+      <input type="text" [placeholder]="'LOGIN.PHONE' | translate" />
+      <input type="text" [placeholder]="'LOGIN.ID_NUMBER' | translate">
+      <input type="email" [placeholder]="'LOGIN.EMAIL' | translate" />
+      <input type="password" [placeholder]="'LOGIN.PASSWORD' | translate" />
       <div class="button-container">
-        <button>Registrarme</button>
+        <button>{{ 'LOGIN.REGISTER_BUTTON' | translate }}</button>
       </div>
       <button class="google-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20" height="20">
-          <path fill="#4285F4" d="M47.5 24.5c0-1.7-.1-3.4-.4-5H24v9.5h13.3c-.6 3.2-2.5 5.9-5.3 7.7v6.4h8.6c5-4.6 7.9-11.4 7.9-18.6z"/>
+        <path fill="#4285F4" d="M47.5 24.5c0-1.7-.1-3.4-.4-5H24v9.5h13.3c-.6 3.2-2.5 5.9-5.3 7.7v6.4h8.6c5-4.6 7.9-11.4 7.9-18.6z"/>
           <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.8-5.7l-8.6-6.4c-2.4 1.6-5.4 2.5-8.6 2.5-6.6 0-12.2-4.5-14.2-10.6H.8v6.7C4.7 43.1 13.7 48 24 48z"/>
           <path fill="#FBBC05" d="M9.8 28.8c-.6-1.6-1-3.3-1-5.1s.4-3.5 1-5.1V11.9H.8C-.3 14.3-1 17.1-1 20s.7 5.7 1.8 8.1l9.2-6.3z"/>
           <path fill="#EA4335" d="M24 9.5c3.6 0 6.8 1.2 9.3 3.6l7-7C36.1 2.1 30.7 0 24 0 13.7 0 4.7 4.9.8 12.3l9.2 6.3C11.8 14 17.4 9.5 24 9.5z"/>
         </svg>
       </button>
-      <p style="margin-top: 4%">¿Ya tienes una cuenta? <a href="#" (click)="togglePanel($event)" class="toggle-link">Login</a></p>
+      <p style="margin-top: 4%">{{ 'LOGIN.HAVE_ACCOUNT' | translate }} <a href="#" (click)="togglePanel($event)" class="toggle-link">{{ 'LOGIN.LOGIN' | translate }}</a></p>
     </form>
   </div>
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left">
-        <h1>Bienvenido</h1>
-        <p>Gracias Por Tenernos Presentes <3</p>
+        <h1>{{ 'LOGIN.WELCOME' | translate }}</h1>
+        <p>{{ 'LOGIN.THANKS_MESSAGE' | translate }}</p>
       </div>
       <div class="overlay-panel overlay-right">
-        <h1>Hola Otra Vez</h1>
-        <p>Ya Nos Hacías Falta :')</p>
+        <h1>{{ 'LOGIN.HELLO_AGAIN' | translate }}</h1>
+        <p>{{ 'LOGIN.MISSED_YOU' | translate }}</p>
       </div>
     </div>
   </div>

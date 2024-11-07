@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CommonModule, CurrencyPipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {TranslateModule, TranslatePipe} from "@ngx-translate/core";
 
 interface Localidad {
   id: number;
@@ -16,7 +17,9 @@ interface Localidad {
   imports: [
     CommonModule,
     CurrencyPipe,
-    FormsModule
+    FormsModule,
+    TranslatePipe,
+    TranslateModule
   ],
   styleUrls: ['./shopping.component.css']
 })

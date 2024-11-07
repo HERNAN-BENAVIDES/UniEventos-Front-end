@@ -1,10 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <h2 class="card-title">Concierto de Rock en Vivo</h2>
+    <h2 class="card-title">{{ 'SHOPPING.TITLE' | translate }}</h2>
   </div>
   <div class="card-content">
     <div class="images">
-      <img src="assets/images/Distribución%20de%20Localidades%20Movistar%20Arena.png" alt="Distribución de localidades" class="event-image">
+      <img src="assets/images/Distribución%20de%20Localidades%20Movistar%20Arena.png"
+           [alt]="'SHOPPING.LOCATION_DISTRIBUTION' | translate"
+           class="event-image">
     </div>
     <div class="locations">
       <div *ngFor="let localidad of localidades" class="location-item">
@@ -13,22 +15,31 @@
           <p>{{localidad.precio | currency:'USD':'symbol':'1.0-0'}}</p>
         </div>
         <div class="quantity-control">
-          <button (click)="actualizarCantidad(localidad.id, -1)" [disabled]="localidad.cantidad === 0">-</button>
-          <input type="number" [(ngModel)]="localidad.cantidad" (ngModelChange)="actualizarCantidad(localidad.id, $event - localidad.cantidad)">
-          <button (click)="actualizarCantidad(localidad.id, 1)">+</button>
+          <button (click)="actualizarCantidad(localidad.id, -1)"
+                  [disabled]="localidad.cantidad === 0"
+                  [attr.aria-label]="'SHOPPING.DECREASE_QUANTITY' | translate">-</button>
+          <input type="number"
+                 [(ngModel)]="localidad.cantidad"
+                 (ngModelChange)="actualizarCantidad(localidad.id, $event - localidad.cantidad)"
+                 [attr.aria-label]="'SHOPPING.QUANTITY' | translate">
+          <button (click)="actualizarCantidad(localidad.id, 1)"
+                  [attr.aria-label]="'SHOPPING.INCREASE_QUANTITY' | translate">+</button>
         </div>
       </div>
     </div>
   </div>
   <div class="card-footer">
     <div class="total">
-      Total: {{totalPrecio | currency:'USD':'symbol':'1.0-0'}} ({{totalEntradas}} entradas)
+      {{ 'SHOPPING.TOTAL' | translate }}: {{totalPrecio | currency:'USD':'symbol':'1.0-0'}}
+      ({{totalEntradas}} {{ 'SHOPPING.TICKETS' | translate }})
     </div>
     <div class="actions">
       <button class="btn btn-outline" (click)="addToCart()">
-        <i class="icon-cart"></i> Añadir al carrito
+        <i class="icon-cart"></i> {{ 'SHOPPING.ADD_TO_CART' | translate }}
       </button>
-      <button class="btn btn-primary" (click)="buyNow()">Comprar ahora</button>
+      <button class="btn btn-primary" (click)="buyNow()">
+        {{ 'SHOPPING.BUY_NOW' | translate }}
+      </button>
     </div>
   </div>
 </div>

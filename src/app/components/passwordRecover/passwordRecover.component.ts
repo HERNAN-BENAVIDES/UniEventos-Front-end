@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {TranslateModule, TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   standalone: true,
   selector: 'app-password-recover',
   templateUrl: './passwordRecover.component.html',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslatePipe,
+    TranslateModule
   ],
   styleUrls: ['./passwordRecover.component.css']
 })

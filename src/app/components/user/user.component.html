@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <h2 class="card-title">Perfil de Usuario</h2>
-    <p class="card-description">Visualiza y edita tu información personal</p>
+    <h2 class="card-title">{{ 'USER.PROFILE_TITLE' | translate }}</h2>
+    <p class="card-description">{{ 'USER.PROFILE_DESCRIPTION' | translate }}</p>
   </div>
   <div class="card-content">
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
       <div class="form-group">
-        <label for="nombres">Nombres</label>
+        <label for="nombres">{{ 'USER.NAMES' | translate }}</label>
         <input
           id="nombres"
           name="nombres"
@@ -14,11 +14,12 @@
           required
           [disabled]="!modoEdicion"
           class="form-control"
+          [placeholder]="'USER.NAMES_PLACEHOLDER' | translate"
         >
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label for="primerApellido">Primer Apellido</label>
+          <label for="primerApellido">{{ 'USER.FIRST_LASTNAME' | translate }}</label>
           <input
             id="primerApellido"
             name="primerApellido"
@@ -26,10 +27,11 @@
             required
             [disabled]="!modoEdicion"
             class="form-control"
+            [placeholder]="'USER.FIRST_LASTNAME_PLACEHOLDER' | translate"
           >
         </div>
         <div class="form-group">
-          <label for="segundoApellido">Segundo Apellido</label>
+          <label for="segundoApellido">{{ 'USER.SECOND_LASTNAME' | translate }}</label>
           <input
             id="segundoApellido"
             name="segundoApellido"
@@ -37,21 +39,23 @@
             required
             [disabled]="!modoEdicion"
             class="form-control"
+            [placeholder]="'USER.SECOND_LASTNAME_PLACEHOLDER' | translate"
           >
         </div>
       </div>
       <div class="form-group">
-        <label for="cedula">Cédula</label>
+        <label for="cedula">{{ 'USER.ID_NUMBER' | translate }}</label>
         <input
           id="cedula"
           name="cedula"
           [(ngModel)]="usuario.cedula"
           readonly
           class="form-control"
+          [placeholder]="'USER.ID_NUMBER_PLACEHOLDER' | translate"
         >
       </div>
       <div class="form-group">
-        <label for="correo">Correo</label>
+        <label for="correo">{{ 'USER.EMAIL' | translate }}</label>
         <input
           id="correo"
           name="correo"
@@ -59,10 +63,11 @@
           [(ngModel)]="usuario.correo"
           readonly
           class="form-control"
+          [placeholder]="'USER.EMAIL_PLACEHOLDER' | translate"
         >
       </div>
       <div class="form-group">
-        <label for="telefono">Teléfono</label>
+        <label for="telefono">{{ 'USER.PHONE' | translate }}</label>
         <input
           id="telefono"
           name="telefono"
@@ -70,19 +75,20 @@
           [(ngModel)]="usuario.telefono"
           [disabled]="!modoEdicion"
           class="form-control"
+          [placeholder]="'USER.PHONE_PLACEHOLDER' | translate"
         >
       </div>
     </form>
   </div>
   <div class="card-footer">
     <button *ngIf="!modoEdicion" (click)="onEditar()" class="btn btn-primary">
-      Editar
+      {{ 'USER.EDIT' | translate }}
     </button>
     <button *ngIf="modoEdicion" (click)="onSubmit()" class="btn btn-primary">
-      Guardar Cambios
+      {{ 'USER.SAVE_CHANGES' | translate }}
     </button>
     <button (click)="onCambiarContrasena()" class="btn btn-outline-primary">
-      Cambiar Contraseña
+      {{ 'USER.CHANGE_PASSWORD' | translate }}
     </button>
   </div>
 </div>

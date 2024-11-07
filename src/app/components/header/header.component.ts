@@ -1,29 +1,53 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-import {Router} from "@angular/router";
+import {routes} from "../../app.routes";
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrl: 'header.component.css',
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, TranslateModule],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isLoggedIn = false;
-  constructor(private router: Router) {}
+  isLoggedIn = false; // Mantén tu lógica actual de autenticación
+  currentLang: string;
 
+  constructor(
+    private router: Router,
+    private translate: TranslateService
+  ) {
+    // Inicializar el idioma actual
+    this.currentLang = this.translate.currentLang || 'es';
+  }
+
+  switchLanguage() {
+    // Cambiar entre español e inglés
+    this.currentLang = this.currentLang === 'es' ? 'en' : 'es';
+    this.translate.use(this.currentLang);
+  }
+
+  // Mantén tus otros métodos
+  change() {
+    // Tu lógica para el modo oscuro
+  }
 
   login() {
-    this.router.navigate(['/event'])
+    this.router.navigate(['/login'])
   }
+
   logout() {
-    this.router.navigate(['/login']);
+    // Tu lógica de logout
   }
-  change() {
+
+  eventBuilder() {
     this.router.navigate(['/eventBuild'])
   }
-  translate() {
+
+  usuario() {
     this.router.navigate(['/user'])
   }
 }
